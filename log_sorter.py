@@ -71,7 +71,7 @@ class get_args():
 class sort_log():
    global inFileName
    global outFileName
-   
+
    test_file = open(inFileName,"r")
    read_file = test_file.read()
 
