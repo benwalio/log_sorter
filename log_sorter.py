@@ -5,13 +5,11 @@ import getopt, sys
 
 # CONSTANTS
 verboseMode = 0
-versionNumber = "1.0a"
-updatedOn = "11/02/2017"
+versionNumber = "1.1a"
+updatedOn = "11/05/2017"
 
 inFileName = "file.txt"
 outFileName = "outfile.txt"
-# fullCmdArgs = sys.argv
-# argList = fullCmdArgs[1:]
 
 
 def set_outfile(file_name):
@@ -97,25 +95,3 @@ class sort_log():
 
 get_args()
 sort_log()
-
-# test_file = open(inFileName,"r")
-# read_file = test_file.read()
-#
-# read_file2 = read_file.split("\n\n")
-# trinary_list = []
-#
-# datetime_format = re.compile("\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}")
-#
-# for i in range(len(read_file2)):
-#     current_line = read_file2[i]
-#     match2 = re.search(datetime_format, current_line)
-#     if match2:
-#         hold_tups = (match2.group(),read_file2[i])
-#         trinary_list.append(hold_tups)
-#
-# trinary_list.sort()
-#
-# wf = open(outFileName,"a")
-#
-# for i in trinary_list:
-#     wf.write(i[1] + "\n\n")
