@@ -6,7 +6,7 @@ import getopt, sys
 # CONSTANTS
 verboseMode = 0
 versionNumber = "1.2a"
-updatedOn = "11/05/2017"
+updatedOn = "11/11/2017"
 
 inFileName = "file.txt"
 outFileName = "outfile.txt"
