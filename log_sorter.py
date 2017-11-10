@@ -10,6 +10,7 @@ updatedOn = "11/11/2017"
 
 inFileName = "file.txt"
 outFileName = "outfile.txt"
+additional_search = ""
 sorted_outlog = []
 
 def set_outfile(file_name):
@@ -43,7 +44,10 @@ def get_args():
    #   o- ouput file, requires variable
    #   i- input file, requires variable
    #   v- version number
-   macArgs = "aho:i:v"
+   #   g- GETs only
+   #   p- PUSHs only
+   #   q- POSTs only
+   macArgs = "aho:i:vgpq"
 
    try:
        arguments, values = getopt.getopt(argList, macArgs)
@@ -63,6 +67,8 @@ def get_args():
            set_outfile(currentValue)
        elif currentArgument in ("-a"):
            print (("version number is - %s") % (versionNumber))
+        elif currentArgument in ("-g"):
+           print ("only processing for GETs")
        elif currentArgument in ("-i"):
            set_infile(currentValue)
 
