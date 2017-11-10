@@ -5,12 +5,12 @@ import getopt, sys
 
 # CONSTANTS
 verboseMode = 0
-versionNumber = "1.1a"
+versionNumber = "1.2a"
 updatedOn = "11/05/2017"
 
 inFileName = "file.txt"
 outFileName = "outfile.txt"
-
+sorted_outlog = []
 
 def set_outfile(file_name):
    global outFileName
@@ -34,7 +34,7 @@ def set_verbose_mode(toggle):
 def quit_program():
    sys.exit()
 
-class get_args():
+def get_args():
    fullCmdArgs = sys.argv
    argList = fullCmdArgs[1:]
 
@@ -66,11 +66,8 @@ class get_args():
        elif currentArgument in ("-i"):
            set_infile(currentValue)
 
-class sort_log():
-   global inFileName
-   global outFileName
-
-   test_file = open(inFileName,"r")
+def sort_log_by_time(in_log, arg='desc'):
+   test_file = open(in_log,"r")
    read_file = test_file.read()
 
    read_file2 = read_file.split("\n\n")
@@ -86,12 +83,17 @@ class sort_log():
            trinary_list.append(hold_tups)
 
    trinary_list.sort()
+   return trinary_list
 
-   wf = open(outFileName,"a")
+def write_file(out_log, out_file, args='append'):
 
-   for i in trinary_list:
+   wf = open(out_file,"a")
+
+   for i in out_log:
        wf.write(i[1] + "\n\n")
 
 
 get_args()
-sort_log()
+sorted_outlog = sort_log_by_time(inFileName)
+
+write_file(sorted_outlog, outFileName)
